@@ -1,0 +1,86 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/typography";
+
+body {
+    line-height: 1.7;
+    background: #fff;
+    font-size: 1.1em;
+    color: #444;
+    font-family:  Georgia, Times, serif
+}
+
+a {
+    @include link-colors(#447799);
+    @include hover-link;
+}
+
+#blog-title {
+    position: absolute;
+    top: 0px;
+    left: 170px;
+    font-size: 12px;
+    line-height: 40px;
+    z-index: 999999;
+    font-family: Helvetica, Arial, sans-serif;
+    * {
+        display: inline;
+    }
+}
+
+
+#main {
+    h1.entry-title {
+        font-size: 2.2em;
+        margin: 1em;
+        text-align: center;
+        a {
+            @include unstyled-link;
+            @include hover-link;
+        }
+    }
+
+    .date {
+        display: none;
+    }
+
+    .entry {
+        border-bottom: solid 1px #ddd;
+        padding-bottom: 3em;
+        margin-bottom: 6em;
+        .entry-inner {
+            max-width: 660px;
+            margin: auto;
+            position: relative;
+            .entry-header-menu {
+                position: absolute;
+                right: 0;
+                top: 0;
+                font-size: 12px;
+            }
+            .entry-footer {
+                .entry-footer-section {
+                    float: right;
+                    font-size: 80%;
+                    color: #666;
+                }
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 1em;
+        text-indent: 1em;
+    }
+
+}
+
+#content {
+    width: 80%;
+    max-width: 960px;
+    margin: auto;
+}
