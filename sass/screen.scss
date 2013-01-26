@@ -6,17 +6,23 @@
 @import "compass/reset";
 @import "compass/typography";
 
+$font-color: #444;
+$link-color: #479;
+
 body {
     line-height: 1.7;
     background: #fff;
     font-size: 1.1em;
-    color: #444;
+    color: $font-color;
     font-family:  Georgia, Times, serif
 }
 
 a {
-    @include link-colors(#447799);
+    @include link-colors($link-color);
     @include hover-link;
+    &.keyword {
+        @include link-colors($font-color);
+    }
 }
 
 #blog-title {
@@ -34,6 +40,7 @@ a {
 
 
 #main {
+    margin: 0 0 2em 0;
     h1.entry-title {
         font-size: 2.2em;
         margin: 1em;
@@ -50,10 +57,9 @@ a {
 
     .entry {
         border-bottom: solid 1px #ddd;
+        padding-top: 3em;
         padding-bottom: 3em;
-        margin-bottom: 6em;
         .entry-inner {
-            max-width: 660px;
             margin: auto;
             position: relative;
             .entry-header-menu {
@@ -62,7 +68,14 @@ a {
                 top: 0;
                 font-size: 12px;
             }
+            .entry-content {
+                max-width: 660px;
+                margin: auto;
+                @include clearfix;
+            }
             .entry-footer {
+                max-width: 660px;
+                margin: 1em auto;
                 .entry-footer-section {
                     float: right;
                     font-size: 80%;
@@ -70,11 +83,44 @@ a {
                 }
             }
         }
+        h2, h3 {
+            font-size: 130%;
+        }
+        h2, h3, h4 {
+            font-weight: bold;
+            margin: 1em 0;
+        }
+        ul, li {
+            list-style: square;
+            margin-left: 1em;
+        }
+        ul {
+            margin: 1em 0 1em 1em;
+            ul {
+                margin: 0 0 0 1em;;
+            }
+        }
     }
 
     p {
         margin-bottom: 1em;
         text-indent: 1em;
+        img {
+            display: block;
+            margin: auto;
+        }
+    }
+
+    dt {
+        font-weight: bold;
+    }
+    dd {
+        margin: 0 0 1em 1em;
+    }
+    
+    .pager {
+        padding: 1em;
+        text-align: center;
     }
 
 }
@@ -83,4 +129,24 @@ a {
     width: 80%;
     max-width: 960px;
     margin: auto;
+    aside .hatena-module {
+        padding: 0 1em 2em 0;
+        font-size: 80%;
+        vertical-align: top;
+        max-width: 660px;
+        margin: auto;
+    }
+    aside .hatena-module-archive li {
+        display: inline;
+        padding-right: 1em;
+    }
+}
+
+#footer {
+    text-align: center;
+    margin: 1em;
+    * {
+        display: inline;
+        font-size: 12px;
+    }
 }
