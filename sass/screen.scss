@@ -1,13 +1,10 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
+@import url(http://fonts.googleapis.com/css?family=Croissant+One);
 @import "compass/reset";
 @import "compass/typography";
 
 $font-color: #444;
 $link-color: #479;
+$content-width: 612px;
 
 body {
     line-height: 1.7;
@@ -28,26 +25,33 @@ a {
 #blog-title {
     position: absolute;
     top: 0px;
-    left: 170px;
-    font-size: 12px;
-    line-height: 40px;
+    left: 0px;
+    font-size: 10px;
+    line-height: 14px;
     z-index: 999999;
+    padding: 8px 15px;
     font-family: Helvetica, Arial, sans-serif;
-    * {
-        display: inline;
-    }
+    font-family: 'Croissant One', cursive;
+    background: #fff url(http://cdn1.www.st-hatena.com/users/na/nagayama/profile.gif) no-repeat 5px center;
+    background-size: 32px;
+    padding-left: 43px;
 }
 
 
 #main {
     margin: 0 0 2em 0;
-    h1.entry-title {
-        font-size: 2.2em;
-        margin: 1em;
-        text-align: center;
-        a {
-            @include unstyled-link;
-            @include hover-link;
+    h1 {
+        &.entry-title {
+            font-size: 2.2em;
+            margin: 1em;
+            text-align: center;
+            a {
+                @include unstyled-link;
+                @include hover-link;
+            }
+        }
+        &.no-title {
+            display: none;
         }
     }
 
@@ -69,12 +73,12 @@ a {
                 font-size: 12px;
             }
             .entry-content {
-                max-width: 660px;
+                max-width: $content-width;
                 margin: auto;
                 @include clearfix;
             }
             .entry-footer {
-                max-width: 660px;
+                max-width: $content-width;
                 margin: 1em auto;
                 .entry-footer-section {
                     float: right;
@@ -100,6 +104,20 @@ a {
                 margin: 0 0 0 1em;;
             }
         }
+        blockquote {
+            border-top: 3px double #ddd;
+            border-bottom: 3px double #ddd;
+            font-style: italic;
+            margin: 1em;
+            padding: 1em;
+            text-align: center;
+            p {
+                margin: 0;
+            }
+        }
+        img {
+            vertical-align: middle;
+        }
     }
 
     p {
@@ -121,6 +139,9 @@ a {
     .pager {
         padding: 1em;
         text-align: center;
+        .pager-next, .pager-prev {
+            padding: 0 1em;
+        }
     }
 
 }
@@ -133,7 +154,7 @@ a {
         padding: 0 1em 2em 0;
         font-size: 80%;
         vertical-align: top;
-        max-width: 660px;
+        max-width: $content-width;
         margin: auto;
     }
     aside .hatena-module-archive li {
@@ -148,5 +169,11 @@ a {
     * {
         display: inline;
         font-size: 12px;
+    }
+    img {
+        vertical-align: middle;
+    }
+    address:after {
+        content: " / ";
     }
 }
