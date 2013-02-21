@@ -1,13 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Croissant+One);
 @import "compass/reset";
 @import "compass/typography";
+@import "compass/css3";
 
 $font-color: #444;
 $link-color: #479;
-$content-width: 612px;
+$content-width: 700px;
 
 body {
-    line-height: 1.7;
+    line-height: 1.8;
     background: #fff;
     font-size: 1.1em;
     color: $font-color;
@@ -24,19 +25,20 @@ a {
 
 #blog-title {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    font-size: 10px;
+    top: 13px;
+    left: 160px;
+    font-size: 12px;
     line-height: 14px;
     z-index: 999999;
-    padding: 8px 15px;
+    padding: 0;
     font-family: Helvetica, Arial, sans-serif;
     font-family: 'Croissant One', cursive;
-    background: #fff url(http://cdn1.www.st-hatena.com/users/na/nagayama/profile.gif) no-repeat 5px center;
-    background-size: 32px;
-    padding-left: 43px;
+    background: none;
+    font-weight: bold;
+    h1, h2 {
+        display: inline;
+    }
 }
-
 
 #main {
     margin: 0 0 2em 0;
@@ -44,6 +46,7 @@ a {
         &.entry-title {
             font-size: 2.2em;
             margin: 1em;
+            line-height: 1.4;
             text-align: center;
             a {
                 @include unstyled-link;
@@ -76,47 +79,127 @@ a {
                 max-width: $content-width;
                 margin: auto;
                 @include clearfix;
+                h1,h2, h3, h4, h5 {
+                    font-weight: bold;
+                    margin:1em 0 0.5em 0;
+                }
+                h1 {
+                    font-size: 150%;
+                }
+                h2, h3 {
+                    font-size: 130%;
+                }
+                ul, li {
+                }
+                ul,ol {
+                    list-style: square;
+                    margin: 1em 0 1em 1em;
+                    ul,ol {
+                        margin: 0 0 0 1em;;
+                    }
+                    li {
+                        margin: 0 0 0 1em;;
+                    }
+                }
+                ol {
+                    list-style: decimal;
+                }
+                table {
+                    margin: 1em auto;
+                    th {
+                        font-weight: bold;
+                        padding: 0.5em 1em;
+                        border-bottom: 3px double #ddd;
+                    }
+                    td {
+                        padding: 0.5em 1em;
+                    }
+                }
+                blockquote {
+                    border-top: 3px double #ddd;
+                    border-bottom: 3px double #ddd;
+                    font-style: italic;
+                    margin: 1em;
+                    padding: 1em;
+                    text-align: center;
+                    p {
+                        margin: 0;
+                    }
+                    cite {
+                        font-size: 0.7em;
+                        display: block;
+                    }
+                }
+                pre {
+                    border-top: 3px double #ddd;
+                    border-bottom: 3px double #ddd;
+                    background: #f9f9f9;
+                    padding: 1em;
+                    font-size: 0.9em;
+                }
+                img {
+                    vertical-align: middle;
+                    &.hatena-fotolife {
+                        margin: 0 1em;
+                    }
+                }
+                .hatena-asin-detail {
+                    border: none;
+                    border-top: 3px double #ddd;
+                    border-bottom: 3px double #ddd;
+                    .hatena-asin-detail-info {
+                        @include clearfix;
+                        p {
+                            text-indent: 0;
+                        }
+                        ul {
+                            margin: 0;
+                            li {
+                                list-style: none;
+                            }
+                        }
+                    }
+                }
             }
             .entry-footer {
                 max-width: $content-width;
                 margin: 1em auto;
+                font-size: 80%;
                 .entry-footer-section {
                     float: right;
-                    font-size: 80%;
                     color: #666;
                 }
+                img {
+                    display: inline;
+                }
+                .comment-box {
+                    margin-top: 2em;
+                    padding-top: 1em;
+                    text-align: center;
+                    line-height: 1.8;
+                    li {
+                        text-align: left;
+                        padding: 1em 0;
+                        .hatena-id-icon {
+                            width: 48px;
+                            height: 48px;
+                            float: left;
+                            margin-right: 15px;
+                        }
+                        .comment-content {
+                            margin-left: 63px;
+                        }
+                        p {
+                            text-indent: 0;
+                            margin: 0;
+                        }
+                        .comment-metadata {
+                            margin-left: 63px;
+                            font-size: 0.9em;
+                        }
+                    }
+                }
             }
-        }
-        h2, h3 {
-            font-size: 130%;
-        }
-        h2, h3, h4 {
-            font-weight: bold;
-            margin: 1em 0;
-        }
-        ul, li {
-            list-style: square;
-            margin-left: 1em;
-        }
-        ul {
-            margin: 1em 0 1em 1em;
-            ul {
-                margin: 0 0 0 1em;;
-            }
-        }
-        blockquote {
-            border-top: 3px double #ddd;
-            border-bottom: 3px double #ddd;
-            font-style: italic;
-            margin: 1em;
-            padding: 1em;
-            text-align: center;
-            p {
-                margin: 0;
-            }
-        }
-        img {
-            vertical-align: middle;
         }
     }
 
@@ -147,25 +230,45 @@ a {
 }
 
 #content {
-    width: 80%;
-    max-width: 960px;
     margin: auto;
-    aside .hatena-module {
-        padding: 0 1em 2em 0;
-        font-size: 80%;
-        vertical-align: top;
-        max-width: $content-width;
-        margin: auto;
+    #wrapper {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 10%;
     }
-    aside .hatena-module-archive li {
-        display: inline;
-        padding-right: 1em;
+    #box2 {
+        @include box-shadow(#000 0px 0px 15px inset); 
+        margin: 5em auto 0 auto;
+        padding: 2em 10%;
+        background: #222;
+        color: #fff;
+        .hatena-module {
+            font-size: 80%;
+            margin: auto;
+            width: 29%;
+            margin:0 2%;
+            @include inline-block;
+            padding: 1em 0;
+            vertical-align: top;
+        }
+        .hatena-module-title {
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+        .hatena-module-body {
+            padding: 1em 0;
+        }
+        .hatena-module-archive li {
+            display: inline;
+            padding-right: 1em;
+        }
     }
 }
 
 #footer {
+    background: #444;
     text-align: center;
-    margin: 1em;
+    padding: 1em;
     * {
         display: inline;
         font-size: 12px;
