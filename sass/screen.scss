@@ -25,8 +25,8 @@ a {
 
 #blog-title {
     position: absolute;
-    top: 13px;
-    left: 160px;
+    top: 45px;
+    left: 13px;
     font-size: 12px;
     line-height: 14px;
     z-index: 999999;
@@ -221,7 +221,7 @@ a {
     dd {
         margin: 0 0 1em 1em;
     }
-    
+
     .pager {
         padding: 1em;
         text-align: center;
@@ -240,7 +240,7 @@ a {
         padding: 0 10%;
     }
     #box2 {
-        @include box-shadow(#000 0px 0px 15px inset); 
+        @include box-shadow(#000 0px 0px 15px inset);
         margin: 5em auto 0 auto;
         padding: 2em 10%;
         background: #222;
